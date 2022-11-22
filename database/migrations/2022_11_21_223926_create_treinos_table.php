@@ -16,19 +16,20 @@ return new class extends Migration
         Schema::create('treinos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('professor_id');
+            $table->unsignedBigInteger('aluno_id');
 
             $table->string('objetivo');
             $table->string('descricao');
             $table->integer('numerotreino');
-            $table->integer('aluno');
+            // $table->integer('aluno');
             $table->string('nometreino');
             $table->string('slug');
 
             $table->timestamps();
 
-            $table->foreign('professor_id')->references('id')->on('professores');
+            $table->foreign('aluno_id')->references('id')->on('alunos');
         });
+
     }
 
     /**

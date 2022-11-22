@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Método de hasone - tem um professor
+    public function professores(){
+        return $this->hasOne(Professor::class);
+    }
+
 }
