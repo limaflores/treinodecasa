@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\{
+    HomeController
+};
+
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Welcome
+//Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::get('/', function () {
     // return view('welcome');
@@ -39,6 +48,7 @@ Route::get('/', function () {
     // dd($iddabase);
 
 });
+
 
 // Route::get('/model', function () {
 //     // $alunos = \App\Models\Aluno::all(); // select * from alunos
@@ -79,15 +89,3 @@ Route::post('/admin/alunos/salvar', 'App\Http\Controllers\Admin\\AlunoController
 
 //     // return \App\Models\User::all();
 // });
-
-// Route::get('/admin/professores', 'App\Http\Controllers\Admin\\ProfessorController@index');
-// Route::get('/admin/professores/create', 'App\Http\Controllers\Admin\\ProfessorController@create');
-// Route::post('/admin/professores/save', 'App\Http\Controllers\Admin\\ProfessorController@save');
-
-Route::get('/admin/alunos', 'App\Http\Controllers\Admin\\AlunoController@index');
-Route::get('/admin/alunos/adicionar', 'App\Http\Controllers\Admin\\AlunoController@adicionar');
-Route::post('/admin/alunos/salvar', 'App\Http\Controllers\Admin\\AlunoController@salvar');
-
-
-
-
