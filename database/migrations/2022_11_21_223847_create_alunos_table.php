@@ -16,11 +16,20 @@ return new class extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+<<<<<<< HEAD
             $table->unsignedBigInteger('professor_id');
 
             $table->string('nome_aluno');
             $table->string('email');
             $table->string('objetivo');
+=======
+            $table->unsignedBigInteger('user_id');
+            $table->string('nome_aluno');
+            $table->date('data_nascimento');
+            $table->string('email');
+            $table->string('objetivo');
+            $table->string('frequencia');
+>>>>>>> criar_users-2
             $table->string('descricao');
             $table->string('nivel_treinamento');
             $table->string('observacoes');
@@ -29,7 +38,11 @@ return new class extends Migration
 
             $table->timestamps();
 
+<<<<<<< HEAD
             $table->foreign('professor_id')->references('id')->on('professores');
+=======
+            $table->foreign('user_id')->references('id')->on('users');
+>>>>>>> criar_users-2
         });
 
     }
