@@ -28,8 +28,8 @@ Route::get('/', function () {
     $user = \App\Models\User::find(1);
     // $usr = \App\Models\Aluno::find(1);
 
-    return $user->aluno();
-    // dd( $user->aluno()->count() );
+    // return $user->aluno();
+    dd( $user->aluno()->count() );
     // return $usr->treinos()->where('id', 1)->get();
 
     // $iddabase = $user->aluno->create[[
