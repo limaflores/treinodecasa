@@ -42,9 +42,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< HEAD
     // Método de hasone - tem um professor
     public function professores(){
         return $this->hasOne(Professor::class);
     }
 
+=======
+
+    public function aluno(){
+        return $this->hasMany(Aluno::class);
+    }
+
+    // Método de hasone - tem um professor
+    // public function professor(){
+    //     return $this->hasOne(Professor::class);
+    // }
+
+>>>>>>> criar_users-2
 }

@@ -9,12 +9,51 @@ class Aluno extends Model
 {
     use HasFactory;
 
+<<<<<<< HEAD
     public function professores(){
         return $this->belongsTo(Professor::class);
     }
 
     public function treinos(){
         return $this->hasMany(Treino::class);
+=======
+    // public function professor(){
+    //     return $this->belongsTo(Professor::class);
+    // }
+
+    // public function treino(){
+    //     return $this->hasMany(Treino::class);
+    // }
+
+
+
+    protected $fillable = [
+        'nome_aluno',
+        'data_nascimento',
+        'email',
+        'objetivo',
+        'frequencia',
+        'descricao',
+        'nivel_treinamento',
+        'observacoes',
+        'lesoes',
+        'slug'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo( User::class );
+    }
+
+    public function treinos()
+    {
+        return $this->hasMany( Treino::class, 'id'  );
+    }
+
+    public function aluno()
+    {
+        return $this->hasMany( Aluno::class, 'id'  );
+>>>>>>> criar_users-2
     }
 
 
