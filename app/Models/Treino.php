@@ -9,9 +9,6 @@ class Treino extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    public function alunos(){
-=======
 
     protected $fillable = [
         'objetivo',
@@ -23,7 +20,6 @@ class Treino extends Model
 
 
     public function aluno(){
->>>>>>> criar_users-2
         return $this->belongsTo(Aluno::class);
     }
 

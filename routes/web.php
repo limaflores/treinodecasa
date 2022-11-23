@@ -64,9 +64,9 @@ Route::post('/admin/alunos/salvar', 'App\Http\Controllers\Admin\\AlunoController
 
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::get('/model', function () {
 //     // $alunos = \App\Models\Aluno::all(); // select * from alunos
