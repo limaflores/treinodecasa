@@ -30,11 +30,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-<<<<<<< HEAD
-            $table->foreign('professor_id')->references('id')->on('professores');
-=======
             $table->foreign('user_id')->references('id')->on('users');
->>>>>>> criar_users-2
         });
 
     }
