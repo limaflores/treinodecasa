@@ -1,0 +1,4 @@
+[12-Nov-2022 16:28:16 UTC] PHP Warning:  require(/home/bvodnz8e/laravel_72f796/vendor/autoload.php): failed to open stream: No such file or directory in /home/bvodnz8e/laravel_72f796/artisan on line 18
+[12-Nov-2022 16:28:16 UTC] PHP Fatal error:  require(): Failed opening required '/home/bvodnz8e/laravel_72f796/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/bvodnz8e/laravel_72f796/artisan on line 18
+[12-Nov-2022 16:28:21 UTC] PHP Warning:  require(/home/bvodnz8e/laravel_72f796/vendor/autoload.php): failed to open stream: No such file or directory in /home/bvodnz8e/laravel_72f796/artisan on line 18
+[12-Nov-2022 16:28:21 UTC] PHP Fatal error:  require(): Failed opening required '/home/bvodnz8e/laravel_72f796/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/bvodnz8e/laravel_72f796/artisan on line 18
