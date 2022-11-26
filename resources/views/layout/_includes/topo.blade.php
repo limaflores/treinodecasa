@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta charset="utf-8">
   <title>@yield('titulo')</title>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,25 +22,35 @@
         <ul class="right hide-on-med-and-down">
 
           @if(Auth::guest())
-            <li><a href="{{route('site.login')}}">Login</a></li>
+
           @else
             <li><a href="{{route('admin.alunos')}}">Alunos</a></li>
             <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
             <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
             <span class="nav-title"> | {{Auth::user()->name}}</span>
+<<<<<<< HEAD
             <li><a href="{{route('site.login.sair')}}">Sair</a></li>
           @endif
         </ul>
         <ul class="side-nav" id="mobile">
           <li><a href="{{route('admin.alunos')}}">Home</a></li>
+=======
+ 
+          @endif
+        </ul>
+        <ul class="side-nav" id="mobile">
+            <li><a href="{{route('admin.alunos')}}">Home</a></li> 
+>>>>>>> refaz-rotas-1
           @if(Auth::guest())
-            <li><a href="{{route('site.login')}}">Login</a></li>
           @else
             <li><a href="{{route('admin.alunos')}}">Alunos</a></li>
             <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
             <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
             <span class="nav-title"> | {{Auth::user()->name}}</span>
+<<<<<<< HEAD
             <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+=======
+>>>>>>> refaz-rotas-1
           @endif
         </ul>
       </div>

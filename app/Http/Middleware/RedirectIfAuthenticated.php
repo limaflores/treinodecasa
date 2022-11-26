@@ -12,7 +12,11 @@ class RedirectIfAuthenticated
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+<<<<<<< HEAD
      * @param  string|null  $guard
+=======
+     * @param  string|null  ...$guards
+>>>>>>> refaz-rotas-1
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)

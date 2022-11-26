@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://treinodecasa.com.br'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -119,7 +119,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'key' => env('APP_KEY','ll2v0t7z7ertbjknqtjuhx1vmskkcigz'),
+=======
+    'key' => env('APP_KEY'),
+>>>>>>> refaz-rotas-1
 
     'cipher' => 'AES-256-CBC',
 
@@ -215,6 +219,10 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
+<<<<<<< HEAD
+=======
+        'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
+>>>>>>> refaz-rotas-1
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
         // 'Redis' => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,

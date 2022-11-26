@@ -4,11 +4,74 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+=======
+    "content-hash": "2c498483e5e9b702875a72c997729431",
+>>>>>>> refaz-rotas-1
     "packages": [
         {
             "name": "asm89/stack-cors",
             "version": "v2.1.1",
+<<<<<<< HEAD
+=======
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/stack-cors.git",
+                "reference": "73e5b88775c64ccc0b84fb60836b30dc9d92ac4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/73e5b88775c64ccc0b84fb60836b30dc9d92ac4a",
+                "reference": "73e5b88775c64ccc0b84fb60836b30dc9d92ac4a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0",
+                "symfony/http-foundation": "^4|^5|^6",
+                "symfony/http-kernel": "^4|^5|^6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7|^9",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asm89\\Stack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                }
+            ],
+            "description": "Cross-origin resource sharing library and stack middleware",
+            "homepage": "https://github.com/asm89/stack-cors",
+            "keywords": [
+                "cors",
+                "stack"
+            ],
+            "support": {
+                "issues": "https://github.com/asm89/stack-cors/issues",
+                "source": "https://github.com/asm89/stack-cors/tree/v2.1.1"
+            },
+            "time": "2022-01-18T09:12:03+00:00"
+        },
+        {
+            "name": "brick/math",
+            "version": "0.10.2",
+>>>>>>> refaz-rotas-1
             "source": {
                 "type": "git",
                 "url": "https://github.com/asm89/stack-cors.git",
@@ -1137,6 +1200,7 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-11-01T14:48:50+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "laravel/sanctum",
@@ -1202,6 +1266,8 @@
                 "source": "https://github.com/laravel/sanctum"
             },
             "time": "2022-04-08T13:39:49+00:00"
+=======
+>>>>>>> refaz-rotas-1
         },
         {
             "name": "laravel/serializable-closure",
@@ -1329,7 +1395,11 @@
                 "issues": "https://github.com/laravel/tinker/issues",
                 "source": "https://github.com/laravel/tinker/tree/v2.7.2"
             },
+<<<<<<< HEAD
             "time": "2022-03-23T12:38:24+00:00"
+=======
+            "time": "2022-11-09T15:11:38+00:00"
+>>>>>>> refaz-rotas-1
         },
         {
             "name": "league/commonmark",
@@ -2476,6 +2546,7 @@
         },
         {
             "name": "psr/log",
+<<<<<<< HEAD
             "version": "1.1.4",
             "source": {
                 "type": "git",
@@ -2486,6 +2557,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
                 "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+=======
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
+>>>>>>> refaz-rotas-1
                 "shasum": ""
             },
             "require": {
@@ -2494,7 +2577,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.1.x-dev"
+=======
+                    "dev-master": "2.0.x-dev"
+>>>>>>> refaz-rotas-1
                 }
             },
             "autoload": {
@@ -2520,9 +2607,15 @@
                 "psr-3"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
+=======
+                "source": "https://github.com/php-fig/log/tree/2.0.0"
+            },
+            "time": "2021-07-14T16:41:46+00:00"
+>>>>>>> refaz-rotas-1
         },
         {
             "name": "psr/simple-cache",
@@ -5061,7 +5154,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-06-27T16:58:25+00:00"
+=======
+            "time": "2022-06-27T17:24:16+00:00"
+>>>>>>> refaz-rotas-1
         },
         {
             "name": "symfony/var-dumper",

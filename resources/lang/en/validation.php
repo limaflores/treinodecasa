@@ -14,6 +14,10 @@ return [
     */
 
     'accepted' => 'The :attribute must be accepted.',
+<<<<<<< HEAD
+=======
+    'accepted_if' => 'The :attribute must be accepted when :other is :value.',
+>>>>>>> refaz-rotas-1
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
@@ -117,10 +121,17 @@ return [
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
+<<<<<<< HEAD
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
+=======
+    'timezone' => 'The :attribute must be a valid timezone.',
+    'unique' => 'The :attribute has already been taken.',
+    'uploaded' => 'The :attribute failed to upload.',
+    'url' => 'The :attribute must be a valid URL.',
+>>>>>>> refaz-rotas-1
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*
