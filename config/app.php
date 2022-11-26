@@ -119,11 +119,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'key' => env('APP_KEY','ll2v0t7z7ertbjknqtjuhx1vmskkcigz'),
-=======
-    'key' => env('APP_KEY'),
->>>>>>> refaz-rotas-1
 
     'cipher' => 'AES-256-CBC',
 

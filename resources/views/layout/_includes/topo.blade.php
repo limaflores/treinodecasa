@@ -28,29 +28,17 @@
             <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
             <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
             <span class="nav-title"> | {{Auth::user()->name}}</span>
-<<<<<<< HEAD
-            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+
           @endif
         </ul>
         <ul class="side-nav" id="mobile">
-          <li><a href="{{route('admin.alunos')}}">Home</a></li>
-=======
- 
-          @endif
-        </ul>
-        <ul class="side-nav" id="mobile">
-            <li><a href="{{route('admin.alunos')}}">Home</a></li> 
->>>>>>> refaz-rotas-1
+            <li><a href="{{route('admin.alunos')}}">Home</a></li>
           @if(Auth::guest())
           @else
             <li><a href="{{route('admin.alunos')}}">Alunos</a></li>
             <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
             <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
             <span class="nav-title"> | {{Auth::user()->name}}</span>
-<<<<<<< HEAD
-            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
-=======
->>>>>>> refaz-rotas-1
           @endif
         </ul>
       </div>

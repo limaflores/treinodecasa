@@ -14,9 +14,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-<<<<<<< HEAD
-        $this->call(UsersTableSeeder::class);
-=======
->>>>>>> refaz-rotas-1
     }
 }

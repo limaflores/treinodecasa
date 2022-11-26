@@ -2,10 +2,6 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Gate;
-=======
->>>>>>> refaz-rotas-1
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
