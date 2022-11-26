@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\{
-    HomeController
-};
-
-
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CustomAuthController;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,74 +14,59 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-// Welcome
-//Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
+/*
 Route::get('/', function () {
-    // return view('welcome');
-    $user = \App\Models\User::find(1);
-    // $usr = \App\Models\Aluno::find(1);
+    return view('welcome');
+});*/
 
-    // return $user->aluno();
-    dd( $user->aluno()->count() );
-    // return $usr->treinos()->where('id', 1)->get();
+//Route::get('/',['as'=>'site.login','uses'=>'App\Http\Controllers\\Site\LoginController@index']);
 
-    // $iddabase = $user->aluno->create[[
-    //     'nome_aluno' => 'Teste 2',
-    //     'data_nascimento' => '',
-    //     'email' => 'teste2@gmail.com',
-    //     'objetivo' => '',
-    //     'frequencia' => '',
-    //     'descricao' => '',
-    //     'nivel_treinamento' => '',
-    //     'observacoes' => '',
-    //     'lesoes' => '',
-    //     'slug' => ''
-    // ]];
+//Rota para o login.
+//Route::get('/login',['as'=>'site.login','uses'=>'App\Http\Controllers\\Site\LoginController@index']);
+//Route::post('/login/entrar',['as'=>'site.login.entrar', 'uses'=>'App\Http\Controllers\\Site\LoginController@entrar']);
+//Route::get('/login/sair',['as'=>'site.login.sair', 'uses'=>'App\Http\Controllers\\Site\LoginController@sair']);
+Route::get('/', [CustomAuthController::class, 'index'])->name('login');
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-    // dd($iddabase);
+
+
+
+
+//Protege as rotas para serem usadas somente por usuário logado.
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('/admin/alunos',['as'=>'admin.alunos', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index']);
+    Route::get('/admin/alunos/adicionar',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@adicionar']);
+    Route::post('/admin/alunos/salvar',['as'=>'admin.alunos.salvar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@salvar']);
+    Route::get('/admin/alunos/editar{id}',['as'=>'admin.alunos.editar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@editar']);
+    Route::put('/admin/alunos/atualizar{id}',['as'=>'admin.alunos.atualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@atualizar']);
+    Route::get('/admin/alunos/deletar{id}',['as'=>'admin.alunos.deletar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@deletar']);
+    Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
+//    Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.vertreinos', 'uses'=>'Admin\AlunoController@vertreinos']);
+
+
+//    Route::get('/admin/treinos',['as'=>'admin.vertreinos', 'uses'=>'Admin\TreinoController@vertreinos']);
+    Route::get('/admin/treinos/visualizarlista{id}',['as'=>'admin.treinos.visualizarlista', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@visualizarlista']);
+
+    Route::get('/admin/treinos',['as'=>'admin.treinos', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@index']);
+
+//    Route::get('/admin/treinos/adicionar',['as'=>'admin.treinos.adicionar', 'uses'=>'Admin\TreinoController@adicionar']);
+    //Route::get('/admin/treinos/adicionar',['as'=>'admin.treinos.adicionar', 'uses'=>'Admin\TreinoController@adicionar']);
+
+    Route::get('/admin/treinos/adicionar{id}',['as'=>'admin.treinos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@adicionar']);
+
+    Route::post('/admin/treinos/salvar',['as'=>'admin.treinos.salvar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@salvar']);
+
+    Route::get('/admin/treinos/editar{id}',['as'=>'admin.treinos.editar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@editar']);
+
+    Route::put('/admin/treinos/atualizar{id}',['as'=>'admin.treinos.atualizar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@atualizar']);
+
+    Route::get('/admin/treinos/deletar{id}',['as'=>'admin.treinos.deletar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@deletar']);
+    Route::get('/admin/treinos/visualizar{id}',['as'=>'admin.treinos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@visualizar']);
 
 });
-
-
-// Route::get('/model', function () {
-//     // $alunos = \App\Models\Aluno::all(); // select * from alunos
-//     // return $alunos;
-
-//     $professor = \App\Models\Professor::find(1);
-//     // return $professor->alunos->count();
-//     // return $professor->alunos;
-//     return $professor->alunos()->where('id', 1)->get();
-
-//     // return \App\Models\User::all();
-// });
-
-// Route::get('/admin/professores', 'App\Http\Controllers\Admin\\ProfessorController@index');
-// Route::get('/admin/professores/create', 'App\Http\Controllers\Admin\\ProfessorController@create');
-// Route::post('/admin/professores/save', 'App\Http\Controllers\Admin\\ProfessorController@save');
-
-Route::get('/admin/alunos', 'App\Http\Controllers\Admin\\AlunoController@index');
-Route::get('/admin/alunos/adicionar', 'App\Http\Controllers\Admin\\AlunoController@adicionar');
-Route::post('/admin/alunos/salvar', 'App\Http\Controllers\Admin\\AlunoController@salvar');
-
-
-
-
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/model', function () {
-//     // $alunos = \App\Models\Aluno::all(); // select * from alunos
-//     // return $alunos;
-
-//     $professor = \App\Models\Professor::find(1);
-//     // return $professor->alunos->count();
-//     // return $professor->alunos;
-//     return $professor->alunos()->where('id', 1)->get();
-
-//     // return \App\Models\User::all();
-// });

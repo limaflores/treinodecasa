@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta charset="utf-8">
   <title>@yield('titulo')</title>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,30 +16,32 @@
   <nav>
     <div class="nav-wrapper deep-orange">
       <div class="container">
-        <a href="#!" class="brand-logo">Treino de casa</a>
-        
+        <a href="{{route('admin.alunos')}}" class="brand-logo">Sistema de treinos</a>
+
         <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
 
           @if(Auth::guest())
-            <li><a href="{{route('site.login')}}">Login</a></li>
+
           @else
-            <li><a href="{{route('admin.treinos')}}">Treinos</a></li>
-            <li><a href="#">{{Auth::user()->name}}</a></li>
-            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+            <li><a href="{{route('admin.alunos')}}">Alunos</a></li>
+            <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
+            <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
+            <span class="nav-title"> | {{Auth::user()->name}}</span>
+ 
           @endif
         </ul>
         <ul class="side-nav" id="mobile">
-          <li><a href="/">Home</a></li>
+            <li><a href="{{route('admin.alunos')}}">Home</a></li> 
           @if(Auth::guest())
-            <li><a href="{{route('site.login')}}">Login</a></li>
           @else
-            <li><a href="{{route('admin.treinos')}}">Treinos</a></li>
-            <li><a href="#">{{Auth::user()->name}}</a></li>
-            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+            <li><a href="{{route('admin.alunos')}}">Alunos</a></li>
+            <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
+            <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
+            <span class="nav-title"> | {{Auth::user()->name}}</span>
           @endif
         </ul>
-      </div>     
+      </div>
     </div>
  </nav>
 </header>

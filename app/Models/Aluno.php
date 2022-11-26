@@ -9,20 +9,21 @@ class Aluno extends Model
 {
     use HasFactory;
 
-
+    /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+    */
     protected $fillable = [
-        'nome_aluno',
+        'nome',
         'data_nascimento',
         'email',
         'objetivo',
         'frequencia',
-        'descricao',
-        'nivel_treinamento',
-        'observacoes',
-        'lesoes',
+        'lesao',
+        'observacao',
         'slug'
     ];
-
     public function user()
     {
         return $this->belongsTo( User::class );

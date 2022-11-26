@@ -1,7 +1,4 @@
 <?php
-// use App\Http\Controllers\Auth;
-// namespace App\Http\Controllers\Auth;
-use Illuminate\Support\Facades\Auth;
 
 namespace App\Http\Controllers\Site;
 
@@ -24,9 +21,9 @@ class LoginController extends Controller
     {
         $dados = $req->all();
         if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['senha']])){
-            return redirect()->route('admin.treinos');    
+            return redirect()->route('admin.alunos');    
         }
-
+        
         return redirect()->route('site.login');
     }
 

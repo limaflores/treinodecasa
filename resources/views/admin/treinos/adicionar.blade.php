@@ -10,9 +10,8 @@
     <div class="row">
         <form class="" action="{{route('admin.treinos.salvar')}}" method="post">
             {{ csrf_field()}}
-            @include('admin.treinos._form')
+            @include('admin.treinos._formAdd')
             <button class="btn deep-orange">Salvar</button>
-
         </form>
     </div>
 

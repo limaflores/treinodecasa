@@ -9,18 +9,17 @@ class Treino extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'objetivo',
-        'descricao',
-        'numerotreino',
-        'nometreino',
+        'exercicio',
+        'serie',
+        'repeticoes',
+        'intervalo',
         'slug'
     ];
 
-
-    public function aluno(){
-        return $this->belongsTo(Aluno::class);
+    public function exercicio()
+    {
+        return $this->belongsToMany( Exercicio::class );
     }
-
 }
