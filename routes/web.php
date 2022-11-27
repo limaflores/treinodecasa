@@ -3,42 +3,43 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CustomAuthController;
- 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-/*
-Route::get('/', function () {
-    return view('welcome');
-});*/
 
-//Route::get('/',['as'=>'site.login','uses'=>'App\Http\Controllers\\Site\LoginController@index']);
 
-//Rota para o login.
-//Route::get('/login',['as'=>'site.login','uses'=>'App\Http\Controllers\\Site\LoginController@index']);
-//Route::post('/login/entrar',['as'=>'site.login.entrar', 'uses'=>'App\Http\Controllers\\Site\LoginController@entrar']);
+
+// Welcome
+// Route::get('/', [CustomAuthController::class, 'index'])->name('home.index');
+Route::get('/', [CustomAuthController::class, 'dashboard']);
+
+
+
+
+
+
+
+
 //Route::get('/login/sair',['as'=>'site.login.sair', 'uses'=>'App\Http\Controllers\\Site\LoginController@sair']);
-Route::get('/', [CustomAuthController::class, 'index'])->name('login');
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('/users', [CustomAuthController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
-
+// About
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 
 //Protege as rotas para serem usadas somente por usuário logado.
 Route::group(['middleware'=>'auth'],function(){
+
+    // Home
+    Route::get('/home', [CustomAuthController::class, 'dashboard'])->name('home');
 
     Route::get('/admin/alunos',['as'=>'admin.alunos', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index']);
     Route::get('/admin/alunos/adicionar',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@adicionar']);

@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/treinodecasa.min.css') }}" rel="stylesheet">
-    
+
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
@@ -33,7 +33,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-  
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
@@ -60,10 +60,10 @@
         </li>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('profile') }}">
+            {{-- <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Alunos</span>
-            </a>
+            </a> --}}
         </li>
 
         <!-- Nav Item - About -->
@@ -99,25 +99,25 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-               
+
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    
 
-                    
+
+
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
-                    
+
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{{ asset('img/logoMh.png') }}" width="100px"/>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route('profile') }}">
+                            <a class="dropdown-item" href="{{ route('signout') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Profile') }}
                             </a>
@@ -132,7 +132,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Logout') }}
+                                {{ __('signout') }}
                             </a>
                         </div>
                     </li>
@@ -187,8 +187,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
-                <a class="btn btn-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                <form id="logout-form" action="" method="POST" style="display: none;">
+                <a class="btn btn-danger" href="{{ route('signout') }}">Logout</a>
                     @csrf
                 </form>
             </div>
