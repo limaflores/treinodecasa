@@ -53,9 +53,9 @@
         </div>
 
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('users.index') }}">
+            <a class="nav-link" href="{{ route('admin.alunos') }}">
                 <i class="fas fa-fw fa-user"></i>
-                <span>Usuários</span>
+                <span>Alunos</span>
             </a>
         </li>
 
@@ -99,17 +99,10 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-
-
-
-
                     <div class="topbar-divider d-none d-sm-block"></div>
-
 
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,7 +110,7 @@
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route('signout') }}">
+                            {{-- <a class="dropdown-item" href="{{ route('signout') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Profile') }}
                             </a>
@@ -128,7 +121,7 @@
                             <a class="dropdown-item" href="javascript:void(0)">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Activity Log') }}
-                            </a>
+                            </a> --}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -184,10 +177,10 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Selecione "Sair" para confirmar.</div>
             <div class="modal-footer">
                 <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
-                <a class="btn btn-danger" href="{{ route('signout') }}">Logout</a>
+                <a class="btn btn-danger" href="{{ route('signout') }}">Sair</a>
                     @csrf
                 </form>
             </div>

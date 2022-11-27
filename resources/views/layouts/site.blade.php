@@ -1,5 +1,5 @@
-    @include('layout._includes.topo')
+    @include('layouts._includes.topo')
 
     @yield('conteudo')
 
-    @include('layout._includes.footer')
+    @include('layouts._includes.footer')

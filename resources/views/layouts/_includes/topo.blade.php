@@ -28,11 +28,11 @@
             <!-- <li><a href="{{route('admin.treinos')}}">Treinos</a></li> -->
             <!-- <li><a href="#">{{Auth::user()->name}}</a></li> -->
             <span class="nav-title"> | {{Auth::user()->name}}</span>
- 
+
           @endif
         </ul>
         <ul class="side-nav" id="mobile">
-            <li><a href="{{route('admin.alunos')}}">Home</a></li> 
+            <li><a href="{{route('admin.alunos')}}">Home</a></li>
           @if(Auth::guest())
           @else
             <li><a href="{{route('admin.alunos')}}">Alunos</a></li>

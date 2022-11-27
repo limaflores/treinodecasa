@@ -30,9 +30,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 
 // About
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about', function () {return view('about');})->name('about');
 
 
 //Protege as rotas para serem usadas somente por usuário logado.
@@ -40,12 +38,18 @@ Route::group(['middleware'=>'auth'],function(){
 
     // Home
     Route::get('/home', [CustomAuthController::class, 'dashboard'])->name('home');
-
     Route::get('/admin/alunos',['as'=>'admin.alunos', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index']);
+    Route::get('/admin/alunos/{id}', ['as'=>'alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
+    Route::get('/admin/alunos/editar/{id}',['as'=>'admin.alunos.editar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@editar']);
+    Route::put('/admin/alunos/atualizar/{id}',['as'=>'admin.alunos.atualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@atualizar']);
+
+    // Route::get('/admin/alunos/editar{id}', function () {return view('/admin/alunos/editar');})->name('admin.alunos.editar');
+    // Route::get('/alunos/index',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index'])->name('alunos.index');
+    // Route::get('/admin/alunos/{id}', [AlunoController::class, 'visualizar'])->name('alunos.visualizar');
+
+
     Route::get('/admin/alunos/adicionar',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@adicionar']);
     Route::post('/admin/alunos/salvar',['as'=>'admin.alunos.salvar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@salvar']);
-    Route::get('/admin/alunos/editar{id}',['as'=>'admin.alunos.editar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@editar']);
-    Route::put('/admin/alunos/atualizar{id}',['as'=>'admin.alunos.atualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@atualizar']);
     Route::get('/admin/alunos/deletar{id}',['as'=>'admin.alunos.deletar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@deletar']);
     Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
 //    Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.vertreinos', 'uses'=>'Admin\AlunoController@vertreinos']);
