@@ -17,18 +17,16 @@
                 </thead>
                 <tbody>
                     <h1>Aluno {{$registrosAlunos->nome}}</h1>
-
                     <tr>
                         <td>{{ $registrosAlunos->nome}}</td>
                         <td>{{ $registrosAlunos->email}}</td>
                         <td>
-                            <a href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}">Treinos</a>
+                            <a class="btn btn-primary" href="{{ route('treinos.visualizarlista', $registrosAlunos->id) }}" role="button">Treinos</a>
                         </td>
                         <td>
-                            <a href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}">Editar Dados</a>
+                            <a class="btn btn-primary" href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}" role="button">Editar Dados</a>
                         </td>
                         <td>
-                            {{-- <a href="{{ route('alunos.deletar', $registrosAlunos->id) }}">Deletar aluno</a> --}}
                             <div class="container d-flex justify-content-center">
                                 <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal">Deletar aluno</button>
 

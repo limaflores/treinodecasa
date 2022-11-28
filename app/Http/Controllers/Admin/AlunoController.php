@@ -49,11 +49,6 @@ class AlunoController extends Controller
         return redirect()->route('admin.alunos');
     }
 
-    // public function visualizar($id)
-    // {
-    //
-    //     return view('admin.alunos.visualizar', compact('registrosAlunos'));
-    // }
     public function visualizar($id){
         if (!$registrosAlunos = Aluno::find($id))
             return redirect()->route('admin.alunos');
