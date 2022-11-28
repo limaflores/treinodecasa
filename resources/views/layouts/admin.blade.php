@@ -129,12 +129,9 @@
                             </a>
                         </div>
                     </li>
-
                 </ul>
-
             </nav>
             <!-- End of Topbar -->
-
             <!-- Content -->
             <div class="container-fluid">
 
@@ -142,21 +139,18 @@
 
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
-
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Desenvolvido por Felipe Lima Flores </span>
-                    <img src="{{ asset('img/favicon.png') }}" width="30px"/>
+            {{-- <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Desenvolvido por Felipe Lima Flores </span>
+                        <img src="{{ asset('img/favicon.png') }}" width="30px"/>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer> --}}
         <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
 

@@ -12,6 +12,7 @@
                         <th>E-mail</th>
                         <th>Treinos</th>
                         <th>Editar dados</th>
+                        <th>Deletar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,32 @@
                         <td>
                             <a href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}">Editar Dados</a>
                         </td>
+                        <td>
+                            {{-- <a href="{{ route('alunos.deletar', $registrosAlunos->id) }}">Deletar aluno</a> --}}
+                            <div class="container d-flex justify-content-center">
+                                <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal">Deletar aluno</button>
+
+                                <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content border-0">
+                                            <div class="modal-body p-0">
+                                                <div class="card border-0 p-sm-3 p-2 justify-content-center">
+                                                    <div class="card-header pb-0 bg-white border-0 "><div class="row"><div class="col ml-auto"><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div> </div>
+                                                    <p class="font-weight-bold mb-2"> Você confirma a exclusão ?</p><p class="text-muted ">  </p></div>
+                                                    <div class="card-body px-sm-4 mb-2 pt-1 pb-0">
+                                                        <div class="row justify-content-end no-gutters"><div class="col-auto"><button type="button" class="btn btn-light text-muted" data-dismiss="modal">Cancel</button></div>
+                                                        <div class="col-auto">
+                                                        <a class="btn btn-primary" href="{{ route('alunos.deletar', $registrosAlunos->id) }}">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -33,3 +60,7 @@
     </div>
 </div>
 @endsection
+
+
+
+

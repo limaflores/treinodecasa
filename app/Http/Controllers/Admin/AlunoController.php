@@ -14,8 +14,6 @@ class AlunoController extends Controller
     {
         $registrosAlunos = Aluno::all();
         return view('admin.alunos.index', compact('registrosAlunos'));
-        // $registrosAlunos = Aluno::find(1);
-        // return view('admin.alunos.editar',compact('registrosAlunos'));
     }
 
     public function adicionar()
@@ -26,9 +24,7 @@ class AlunoController extends Controller
     public function salvar(Request $req)
     {
         $dados = $req->all();
-
         Aluno::create($dados);
-
         return redirect()->route('admin.alunos');
     }
 
@@ -60,7 +56,7 @@ class AlunoController extends Controller
     // }
     public function visualizar($id){
         if (!$registrosAlunos = Aluno::find($id))
-            return redirect()->route('alunos.index');
+            return redirect()->route('admin.alunos');
 
         return view ('admin.alunos.show', compact('registrosAlunos'));
     }

@@ -7,30 +7,22 @@ use App\Http\Controllers\CustomAuthController;
 
 
 // Welcome
+// About
+Route::get('/about', function () {return view('about');})->name('about');
 // Route::get('/', [CustomAuthController::class, 'index'])->name('home.index');
 Route::get('/', [CustomAuthController::class, 'dashboard']);
-
-
-
-
-
-
-
 
 //Route::get('/login/sair',['as'=>'site.login.sair', 'uses'=>'App\Http\Controllers\\Site\LoginController@sair']);
 Route::get('/users', [CustomAuthController::class, 'index']);
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
+// Custom login
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
-
-// About
-Route::get('/about', function () {return view('about');})->name('about');
 
 
 //Protege as rotas para serem usadas somente por usuário logado.
@@ -42,15 +34,15 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/alunos/{id}', ['as'=>'alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
     Route::get('/admin/alunos/editar/{id}',['as'=>'admin.alunos.editar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@editar']);
     Route::put('/admin/alunos/atualizar/{id}',['as'=>'admin.alunos.atualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@atualizar']);
+    Route::get('/alunos/adicionar',['as'=>'alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@adicionar']);
+    Route::post('/admin/alunos/salvar',['as'=>'admin.alunos.salvar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@salvar']);
+    Route::get('/alunos/deletar{id}',['as'=>'alunos.deletar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@deletar']);
 
+
+    // Route::get('/alunos/index',['as'=>'.alunos.index', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index']);
     // Route::get('/admin/alunos/editar{id}', function () {return view('/admin/alunos/editar');})->name('admin.alunos.editar');
-    // Route::get('/alunos/index',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index'])->name('alunos.index');
     // Route::get('/admin/alunos/{id}', [AlunoController::class, 'visualizar'])->name('alunos.visualizar');
 
-
-    Route::get('/admin/alunos/adicionar',['as'=>'admin.alunos.adicionar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@adicionar']);
-    Route::post('/admin/alunos/salvar',['as'=>'admin.alunos.salvar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@salvar']);
-    Route::get('/admin/alunos/deletar{id}',['as'=>'admin.alunos.deletar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@deletar']);
     Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
 //    Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.vertreinos', 'uses'=>'Admin\AlunoController@vertreinos']);
 
