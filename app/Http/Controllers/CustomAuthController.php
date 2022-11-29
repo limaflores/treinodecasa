@@ -1,22 +1,18 @@
 <?php
-
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use App\Treino;
+use App\Aluno;
 class CustomAuthController extends Controller
 {
-
     public function index()
     {
         return view('auth.login');
     }
-
 
     public function customLogin(Request $request)
     {
@@ -34,13 +30,10 @@ class CustomAuthController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
-
-
     public function registration()
     {
         return view('auth.registration');
     }
-
 
     public function customRegistration(Request $request)
     {
@@ -56,7 +49,6 @@ class CustomAuthController extends Controller
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 
-
     public function create(array $data)
     {
       return User::create([
@@ -66,7 +58,6 @@ class CustomAuthController extends Controller
       ]);
     }
 
-
     public function dashboard()
     {
         if(Auth::check()){
@@ -75,13 +66,23 @@ class CustomAuthController extends Controller
             $widget = [
                 'users' => $users,
             ];
-            return view('home/home', compact('widget'));
             // return view('auth.dashboard');
+            // Number alunos and treinos
+            $id_usuario = (Auth::user()->id);
+            $n_treinos = Treino::all()->count();
+            $n_alunos = Aluno::all()->count();
+
+            // $registros = DB::table('treinos')
+            // ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+            // ->select('alunos.nome as nomealuno', 'treinos.*')
+            // ->get();
+
+
+            return view('home/home', compact('widget', 'n_treinos', 'n_alunos'));
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
     }
-
 
     public function signOut() {
         Session::flush();

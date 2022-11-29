@@ -1,6 +1,4 @@
 @extends('layouts.admin')
-{{-- @section('titulo','Aluno') --}}
-
 @section('main-content')
 
 <div class="container">
@@ -20,10 +18,10 @@
     </div>
     @endif
 
-    <h3 class="center">Lista de treinos</h3>
-    @foreach($registrosAlunos as $registroAluno)
+    <h3 class="center">Lista de últimos treinos</h3>
+    {{-- @foreach($registrosAlunos as $registroAluno)
       <h5>Aluno {{ $registroAluno->nome }}</h5>
-    @endforeach
+    @endforeach --}}
 
     <div class="row">
         <!-- Content Column -->
@@ -39,7 +37,7 @@
                                     <thead>
                                         <tr>
                                             <th>Ordem</th>
-                                            {{-- <th>Número do treino</th> --}}
+                                            <th>Aluno</th>
                                             <th>Nome do treino</th>
                                             <th>Visualizar / Editar</th>
                                             <th>Deletar</th>
@@ -50,7 +48,7 @@
                                             <?php $contador = $contador-1; ?>
                                             <tr>
                                                 <td>{{ $contador }}</td>
-                                                {{-- <td>{{ $registro->numerotreino }}</td> --}}
+                                                <td>{{ $registro->nomealuno }}</td>
                                                 <td>{{ $registro->nometreino }}</td>
                                                 <td>
                                                     <a class="btn btn-primary" href="{{ route('admin.treinos.editar',$registro->id)  }}" role="button">Visualizar</a>
@@ -87,7 +85,7 @@
                 </div>
             </div>
             <!-- Add treino -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-1">
                     <a href="{{ route('admin.treinos.adicionar', $id) }}" class="btn btn-info btn-icon-split float-left">
                         <span class="icon text-white-50">
@@ -96,7 +94,7 @@
                         </span>
                     </a>
                 </div>
-            </div>
+            </div> --}}
             <!-- End of Add treino -->
         <!-- </div> -->
     </div>

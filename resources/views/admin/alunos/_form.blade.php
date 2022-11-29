@@ -41,13 +41,13 @@
 </div>
 
 <div class="form-group">
-    <label>Usuário</label>
-    <input type="text"   class="form-control" id="exampleInputEmail1" name="usuario" value="{{isset($registrosAlunos->usuario) ? $registrosAlunos->usuario : ''}}" required="">
+    {{-- <label>Professor</label> --}}
+    <input type="hidden"   class="form-control" name="professor" value="{{$id}}">
 </div>
 
 <div class="form-group">
-    <label>Senha</label>
-    <input type="password"   class="form-control" id="exampleInputEmail1" name="senha" value="{{isset($registrosAlunos->senha) ? $registrosAlunos->senha : ''}}" required="">
+    <label>Lesões</label>
+    <input type="text"   class="form-control" id="exampleInputEmail1" name="lesoes" value="{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}" required="">
 </div>
 
 <div class="form-group">

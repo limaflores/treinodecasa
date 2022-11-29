@@ -1,24 +1,26 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Aluno;
-
 class AlunoController extends Controller
 {
     //
     public function index()
     {
-        $registrosAlunos = Aluno::all();
+        //$registros = DB::table('treinos')->where('aluno', $id)->get();
+        // $registrosAlunos = Aluno::all();
+        $id = (Auth::user()->id);
+        $registrosAlunos = Aluno::all()->where('professor', $id);
         return view('admin.alunos.index', compact('registrosAlunos'));
     }
 
     public function adicionar()
     {
-        return view('admin.alunos.adicionar');
+        $id = (Auth::user()->id);
+        return view('admin.alunos.adicionar', compact('id'));
     }
 
     public function salvar(Request $req)
@@ -28,10 +30,11 @@ class AlunoController extends Controller
         return redirect()->route('admin.alunos');
     }
 
-    public function editar($id)
+    public function editar($idrecebido)
     {
-      $registrosAlunos = Aluno::find($id);
-      return view('admin.alunos.editar',compact('registrosAlunos'));
+        $id = (Auth::user()->id);
+        $registrosAlunos = Aluno::find($idrecebido);
+        return view('admin.alunos.editar',compact('registrosAlunos', 'id'));
     }
 
     public function atualizar(Request $req, $id)
@@ -55,6 +58,5 @@ class AlunoController extends Controller
 
         return view ('admin.alunos.show', compact('registrosAlunos'));
     }
-
 
 }

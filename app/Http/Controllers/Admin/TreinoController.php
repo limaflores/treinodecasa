@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Treino;
 use App\Aluno;
 use DB;
@@ -14,8 +15,8 @@ class TreinoController extends Controller
     public function index()
     {
         // order by desceding
-        $registros = Treino::orderBy('id', 'desc')->get();
-
+        // $registros = Treino::orderBy('id', 'desc')->get();
+        $results = Treino::all()->sortByDesc("id");
         // $registros = Treino::all();
         return view('admin.treinos.index', compact('registros'));
     }
@@ -94,14 +95,34 @@ class TreinoController extends Controller
     public function visualizarlista($id)
     {
         //$treinos= DB::table('treinos')->where('aluno')->get();
-
         //Aqui pega os registros do banco de treino onde o campo 'aluno' é igual ao id do aluno em questão.
+        // $registros = DB::table('treinos')->where('aluno', $id)->get();
+        // $registros = Treino::all()->sortByDesc("id")->where('aluno', $id);
+        // $registrosAlunos = DB::table('alunos')->where('id', $id)->get();
+        $registrosAlunos = Aluno::all()->where('id', $id);
+        // dd($registrosAlunos);
+        // $registros = DB::table('treinos')->where('aluno', $id)->orderBy('id','desc')->get();
+        $registros = Treino::orderBy('id', 'desc')->where('aluno', $id)->get();
+        $numeroregistros = $registros->count();
+        // dd($numeroregistros);
+        // $registros = Treino::latest('created_at')->get();
+        // $id = $id;
+        return view('admin.treinos.visualizarlista', compact('registros','id','registrosAlunos', 'numeroregistros'));
+    }
 
-        $registros = DB::table('treinos')->where('aluno', $id)->get();
-        $id = $id;
-        $registrosAlunos = DB::table('alunos')->where('id', $id)->get();
+    public function ultimostreinos()
+    {
+        // $registros = Treino::orderBy('id', 'desc')->get();
+        // $registrosAlunos = Aluno::all()->where('professor', $id);
+        $id = (Auth::user()->id);
+        $registros = DB::table('treinos')
+        ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+        ->where('treinos.aluno', '=', $id)
+        ->select('alunos.nome as nomealuno', 'treinos.*')
+        ->get();
 
-        return view('admin.treinos.visualizarlista', compact('registros','id','registrosAlunos'));
+        $numeroregistros = $registros->count();
+        return view('admin.treinos.ultimostreinos', compact('registros','numeroregistros'));
     }
 
 }

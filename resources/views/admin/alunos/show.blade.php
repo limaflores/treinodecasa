@@ -9,7 +9,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>E-mail</th>
+                        {{-- <th>E-mail</th> --}}
                         <th>Treinos</th>
                         <th>Editar dados</th>
                         <th>Deletar</th>
@@ -19,16 +19,16 @@
                     <h1>Aluno {{$registrosAlunos->nome}}</h1>
                     <tr>
                         <td>{{ $registrosAlunos->nome}}</td>
-                        <td>{{ $registrosAlunos->email}}</td>
+                        {{-- <td>{{ $registrosAlunos->email}}</td> --}}
                         <td>
                             <a class="btn btn-primary" href="{{ route('treinos.visualizarlista', $registrosAlunos->id) }}" role="button">Treinos</a>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}" role="button">Editar Dados</a>
+                            <a class="btn btn-primary" href="{{ route('admin.alunos.editar', $registrosAlunos->id) }}" role="button">Editar</a>
                         </td>
                         <td>
                             <div class="container d-flex justify-content-center">
-                                <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal">Deletar aluno</button>
+                                <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal">Deletar</button>
 
                                 <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">

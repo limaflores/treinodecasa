@@ -5,8 +5,8 @@
     <input class="form-control" type="text" name="objetivo" required="" value="{{isset($registro->objetivo) ? $registro->objetivo : ''}}">
 </div>
 <div class="input-field">
-    <label>Número treino</label>
-    <input class="form-control" type="number" name="numerotreino" required="" value="{{isset($registro->numerotreino) ? $registro->numerotreino : ''}}">
+    <label>Observacao</label>
+    <input class="form-control" type="textarea" name="observacao" required="" value="{{isset($registro->observacao) ? $registro->observacao : ''}}">
 </div>
 
 <div class="input-field">

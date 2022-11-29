@@ -9,6 +9,6 @@ class Treino extends Model
     //Classe.
     //Campos que serão utilizados.
     protected $fillable = [
-        'objetivo', 'descricao', 'numerotreino', 'aluno', 'nometreino'
+        'objetivo', 'descricao', 'observacao', 'aluno', 'nometreino'
     ];
 }

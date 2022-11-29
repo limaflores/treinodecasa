@@ -31,8 +31,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -68,7 +67,7 @@
 
         <!-- Nav Item - About -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('about') }}">
+            <a class="nav-link" href="{{ route('treinos.ultimostreinos') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>Treinos</span>
             </a>
@@ -190,6 +189,17 @@
 <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('js/datatable.js') }}"></script>
 <script src="{{ asset('js/treinodecasa.min.js') }}"></script>
+
+    <script>
+        @media screen and (max-width: 771px) {
+            #fixed-sidebar {
+                display: none;
+            }
+            #navbar-superior {
+                display: block !important;
+            }
+        }
+    </script>
 
 </body>
 </html>
