@@ -40,13 +40,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/treinos',['as'=>'admin.treinos', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@index']);
     Route::post('/admin/treinos/salvar',['as'=>'admin.treinos.salvar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@salvar']);
     Route::get('/admin/treinos/visualizar{id}',['as'=>'admin.treinos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@visualizar']);
+    // Visão geral
+    Route::get('/admin/treinos/visaogeral{id}',['as'=>'admin.treinos.visaogeral', 'uses'=>'App\Http\Controllers\\Admin\TreinoController@visaogeral']);
 
-    // Route::get('/alunos/index',['as'=>'.alunos.index', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@index']);
-    // Route::get('/admin/alunos/editar{id}', function () {return view('/admin/alunos/editar');})->name('admin.alunos.editar');
-    // Route::get('/admin/alunos/{id}', [AlunoController::class, 'visualizar'])->name('alunos.visualizar');
-    // Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.visualizar', 'uses'=>'App\Http\Controllers\\Admin\AlunoController@visualizar']);
-    // Route::get('/admin/alunos/visualizar{id}',['as'=>'admin.alunos.vertreinos', 'uses'=>'Admin\AlunoController@vertreinos']);
-    // Route::get('/admin/treinos',['as'=>'admin.vertreinos', 'uses'=>'Admin\TreinoController@vertreinos']);
-    //Route::get('/admin/treinos/adicionar',['as'=>'admin.treinos.adicionar', 'uses'=>'Admin\TreinoController@adicionar']);
-    // Route::get('/admin/treinos/adicionar',['as'=>'admin.treinos.adicionar', 'uses'=>'Admin\TreinoController@adicionar']);
 });

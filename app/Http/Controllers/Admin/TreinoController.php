@@ -26,8 +26,14 @@ class TreinoController extends Controller
         //return view('admin.treinos.adicionar');
         //$registros = DB::table('treinos')->where('aluno', $id)->get();
         //$id = DB::table('alunos')->where('id', $id)->get();
-        $id = $id;
-        return view('admin.treinos.adicionar', compact('id'));
+        // $id = $id;
+        $nomealuno = DB::table('treinos')
+        ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+        ->where('treinos.aluno', '=', $id)
+        ->select('alunos.nome as nomealuno')
+        ->get();
+        $nomealuno = $nomealuno[0]->nomealuno;
+        return view('admin.treinos.adicionar', compact('id','nomealuno'));
         //return view('admin.treinos.adicionar');
         //$id = $request->query('id'); // Pega somente o da query string
     }
@@ -123,6 +129,24 @@ class TreinoController extends Controller
 
         $numeroregistros = $registros->count();
         return view('admin.treinos.ultimostreinos', compact('registros','numeroregistros'));
+    }
+
+    public function visaogeral()
+    {
+        // $registros = Treino::orderBy('id', 'desc')->get();
+        // $registrosAlunos = Aluno::all()->where('professor', $id);
+        $id = (Auth::user()->id);
+        $registros = DB::table('treinos')
+        ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+        ->where('alunos.professor', '=', $id)
+        ->select('alunos.*', 'treinos.*')
+        ->get();
+        // dd($registros);
+        $numeroregistros = $registros->count();
+        $registros = $registros[0];
+        // $id_aluno = $registros[0]->id;
+        // dd($registros);
+        return view('admin.treinos.visaogeral', compact('registros','numeroregistros'));
     }
 
 }

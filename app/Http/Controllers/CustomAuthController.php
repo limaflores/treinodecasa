@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
+use DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Treino;
@@ -69,16 +70,17 @@ class CustomAuthController extends Controller
             // return view('auth.dashboard');
             // Number alunos and treinos
             $id_usuario = (Auth::user()->id);
-            $n_treinos = Treino::all()->count();
-            $n_alunos = Aluno::all()->count();
+            $nome_prof = Auth::user()->name;
+            // $n_treinos = Treino::all()->count();
+            // $n_alunos = Aluno::all()->count();
+            $n_treinos = DB::table('treinos')
+            ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+            ->where('alunos.professor', '=', $id_usuario)
+            ->select('treinos.*')
+            ->count();
+            $n_alunos = DB::table('alunos')->where('professor', $id_usuario)->count();
 
-            // $registros = DB::table('treinos')
-            // ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
-            // ->select('alunos.nome as nomealuno', 'treinos.*')
-            // ->get();
-
-
-            return view('home/home', compact('widget', 'n_treinos', 'n_alunos'));
+            return view('home/home', compact('widget', 'n_treinos', 'n_alunos', 'nome_prof'));
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

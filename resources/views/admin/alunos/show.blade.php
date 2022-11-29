@@ -2,6 +2,8 @@
 @extends('layouts.admin')
 
 @section('main-content')
+
+
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
@@ -9,7 +11,6 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        {{-- <th>E-mail</th> --}}
                         <th>Treinos</th>
                         <th>Editar dados</th>
                         <th>Deletar</th>
@@ -19,7 +20,6 @@
                     <h1>Aluno {{$registrosAlunos->nome}}</h1>
                     <tr>
                         <td>{{ $registrosAlunos->nome}}</td>
-                        {{-- <td>{{ $registrosAlunos->email}}</td> --}}
                         <td>
                             <a class="btn btn-primary" href="{{ route('treinos.visualizarlista', $registrosAlunos->id) }}" role="button">Treinos</a>
                         </td>
@@ -57,6 +57,48 @@
         </div>
     </div>
 </div>
+
+<!-- Basic Card Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Informações</h5>
+    </div>
+    <div class="card-body">
+
+        <table cellpadding="5">
+            <tr>
+                <th>Nome:</th>
+                <td>{{ $registrosAlunos->nome}}</td>
+            </tr>
+            <tr>
+                <th>E-mail:</th>
+                <td>{{ $registrosAlunos->email}}</td>
+            </tr>
+            <tr>
+                <th>Telefone:</th>
+                <td>{{ $registrosAlunos->telefone}}</td>
+            </tr>
+            <tr>
+                <th>Objetivo:</th>
+                <td>{{ $registrosAlunos->objetivo}}</td>
+            </tr>
+            <tr>
+                <th>Vo2:</th>
+                <td>{{ $registrosAlunos->vo2}}</td>
+            </tr>
+            <tr>
+                <th>Lesões:</th>
+                <td>{{ $registrosAlunos->lesoes}}</td>
+            </tr>
+            <tr>
+                <th>Observações:</th>
+                <td>{{ $registrosAlunos->observacoes}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
 @endsection
 
 

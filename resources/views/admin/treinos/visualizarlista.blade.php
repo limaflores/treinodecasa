@@ -23,6 +23,14 @@
     <h3 class="center">Lista de treinos</h3>
     @foreach($registrosAlunos as $registroAluno)
       <h5>Aluno {{ $registroAluno->nome }}</h5>
+        <div class="my-2">
+            <a href="{{route('admin.treinos.visaogeral', $registroAluno->id)}}" class="btn btn-info btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-info-circle"></i>
+                </span>
+                <span class="text">Visão geral</span>
+            </a>
+        </div>
     @endforeach
 
     <div class="row">
@@ -84,21 +92,21 @@
                             </div>
                         <!-- </div> -->
                     {{-- </div> --}}
-                </div>
+                    <!-- Add treino -->
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <a href="{{ route('admin.treinos.adicionar', $id) }}" class="btn btn-info btn-icon-split float-left">
+                                <span class="icon text-white-50">
+                                    <span class="text">Adicionar treino</span>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End of Add treino -->
+                <!-- </div> -->
             </div>
-            <!-- Add treino -->
-            <div class="row">
-                <div class="col-lg-1">
-                    <a href="{{ route('admin.treinos.adicionar', $id) }}" class="btn btn-info btn-icon-split float-left">
-                        <span class="icon text-white-50">
-                            <span class="text">Adicionar treino</span>
-                            <i class="fas fa-plus"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <!-- End of Add treino -->
-        <!-- </div> -->
+        </div>
     </div>
 
     <script>

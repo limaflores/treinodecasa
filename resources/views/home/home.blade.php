@@ -3,6 +3,7 @@
 @section('main-content')
 
     <!-- Page Heading -->
+    <h3 class="h4 mb-4 text-gray-800">Bem vindo {{$nome_prof}}</h3>
     <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
 
     @if (session('success'))
