@@ -127,7 +127,7 @@ class TreinoController extends Controller
         ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
         ->where('alunos.professor', '=', $id)
         ->select('alunos.nome as nomealuno', 'treinos.*')
-        ->get();
+        ->orderBy('id', 'desc')->get();
 
         $numeroregistros = $registros->count();
         return view('admin.treinos.ultimostreinos', compact('registros','numeroregistros'));
