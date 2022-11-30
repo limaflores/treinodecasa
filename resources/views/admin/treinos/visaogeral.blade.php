@@ -38,7 +38,7 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-            <a class="btn btn-primary" href="{{ route('admin.alunos.editar', $registros->aluno) }}" role="button">Editar dados</a>
+            <a class="btn btn-primary" href="{{ route('admin.alunos.editar', $id_aluno) }}" role="button">Editar dados</a>
             <button id="cancel" name="cancel" class="btn btn-default" onclick="history.back()">Voltar</button>
         </div>
     </div>

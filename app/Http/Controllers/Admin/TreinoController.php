@@ -27,12 +27,13 @@ class TreinoController extends Controller
         //$registros = DB::table('treinos')->where('aluno', $id)->get();
         //$id = DB::table('alunos')->where('id', $id)->get();
         // $id = $id;
-        $nomealuno = DB::table('treinos')
-        ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
-        ->where('treinos.aluno', '=', $id)
-        ->select('alunos.nome as nomealuno')
-        ->get();
-        $nomealuno = $nomealuno[0]->nomealuno;
+        // $nomealuno = DB::table('treinos')
+        // ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
+        // ->where('treinos.aluno', '=', $id)
+        // ->select('alunos.nome as nomealuno')
+        // ->get();
+        $nomealuno = DB::table('alunos')->where('id', $id)->get();
+        $nomealuno = $nomealuno[0]->nome;
         return view('admin.treinos.adicionar', compact('id','nomealuno'));
         //return view('admin.treinos.adicionar');
         //$id = $request->query('id'); // Pega somente o da query string
@@ -121,9 +122,10 @@ class TreinoController extends Controller
         // $registros = Treino::orderBy('id', 'desc')->get();
         // $registrosAlunos = Aluno::all()->where('professor', $id);
         $id = (Auth::user()->id);
+        //dd($id);
         $registros = DB::table('treinos')
         ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
-        ->where('treinos.aluno', '=', $id)
+        ->where('alunos.professor', '=', $id)
         ->select('alunos.nome as nomealuno', 'treinos.*')
         ->get();
 
@@ -131,22 +133,24 @@ class TreinoController extends Controller
         return view('admin.treinos.ultimostreinos', compact('registros','numeroregistros'));
     }
 
-    public function visaogeral()
+    public function visaogeral($id_aluno)
     {
         // $registros = Treino::orderBy('id', 'desc')->get();
         // $registrosAlunos = Aluno::all()->where('professor', $id);
         $id = (Auth::user()->id);
-        $registros = DB::table('treinos')
+        $numeroregistros = DB::table('treinos')
         ->join('alunos', 'treinos.aluno', '=', 'alunos.id')
         ->where('alunos.professor', '=', $id)
         ->select('alunos.*', 'treinos.*')
         ->get();
         // dd($registros);
-        $numeroregistros = $registros->count();
-        $registros = $registros[0];
+        //$registros = Aluno::all()->where('id', $id_aluno);
+        $registros = Aluno::find($id_aluno);
+        $numeroregistros = $numeroregistros->count();
+        //$registros = $registros[0];
         // $id_aluno = $registros[0]->id;
-        // dd($registros);
-        return view('admin.treinos.visaogeral', compact('registros','numeroregistros'));
+        //dd($registros);
+        return view('admin.treinos.visaogeral', compact('registros','numeroregistros', 'id_aluno'));
     }
 
 }

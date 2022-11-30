@@ -47,12 +47,12 @@
 
 <div class="form-group">
     <label>Lesões</label>
-    <input type="text"   class="form-control" id="exampleInputEmail1" name="lesoes" value="{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}" required="">
+    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="lesoes" value="{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}" required="">{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}</textarea>
 </div>
 
 <div class="form-group">
     <label>Observações</label>
-    <input type="text"   class="form-control" id="exampleInputEmail1" name="observacoes" value="{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}" required="">
+    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="observacoes" style="width: 20em; height: 5em;" value="{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}" required="">{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}</textarea>
 </div>
 
 
