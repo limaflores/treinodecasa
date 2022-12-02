@@ -15,12 +15,12 @@ class CreateTreinosTable extends Migration
     {
         Schema::create('treinos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('objetivo');
-            $table->string('descricao');
-            $table->string('observacao');
+            $table->string('objetivo')->nullable()->default(NULL);
+            $table->string('descricao')->nullable()->default(NULL);
+            $table->string('observacao')->nullable()->default(NULL);
             // $table->integer('numerotreino');
-            $table->integer('aluno');
-            $table->string('nometreino');
+            $table->integer('aluno')->nullable()->default(NULL);
+            $table->string('nometreino')->nullable()->default(NULL);
             $table->timestamps();
         });
     }
