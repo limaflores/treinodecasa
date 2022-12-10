@@ -39,6 +39,18 @@
                 </div>
                 <div>
                     <tr>
+                        <td>Data de nascimento</td>
+                        <td>{{ \Carbon\Carbon::parse($registrosAlunos->datanascimento)->format('d/m/Y')}}</td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>Nível de condicionamento</td>
+                        <td>{{ $registrosAlunos->nivelcondicionamento }}</td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
                         <td>Vo2</td>
                         <td>{{ $registrosAlunos->vo2 }}</td>
                     </tr>
@@ -65,7 +77,7 @@
                 </td>
                 <td>
                     <!-- <a class="btn red"style="padding:0 1.55rem;" href="{{ route('admin.alunos.deletar',$registrosAlunos->id) }}">Deletar</a> -->
-                    
+
                     <div class="row section">
                         <div class="col">
                         <!-- Modal Trigger -->
@@ -82,10 +94,10 @@
                         <a href="{{ route('admin.alunos.deletar',$registrosAlunos->id) }}" class=" modal-action modal-close waves-effect waves-green btn-flat">Sim</a>
                         </div>
                     </div>
-                    
+
                 </td>
                 <td>
-                    
+
                     <!-- Modal Trigger -->
                     <!--
                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
@@ -102,7 +114,7 @@
                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
                         </div>
                     </div>
-                    -->                            
+                    -->
                 </td>
             </tr>
         </tbody>

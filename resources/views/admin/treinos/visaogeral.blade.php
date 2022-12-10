@@ -21,6 +21,14 @@
                 <td>{{ $registros->objetivo}}</td>
             </tr>
             <tr>
+                <th>Data de nascimento:</th>
+                <td>{{ \Carbon\Carbon::parse($registros->datanascimento)->format('d/m/Y')}}</td>
+            </tr>
+            <tr>
+                <th>Nível de condicionamento:</th>
+                <td>{{ $registros->nivelcondicionamento}}</td>
+            </tr>
+            <tr>
                 <th>Vo2:</th>
                 <td>{{ $registros->vo2}}</td>
             </tr>

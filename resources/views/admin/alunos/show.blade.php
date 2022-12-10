@@ -83,6 +83,14 @@
                 <td>{{ $registrosAlunos->objetivo}}</td>
             </tr>
             <tr>
+                <th>Data de nascimento:</th>
+                <td>{{ \Carbon\Carbon::parse($registrosAlunos->datanascimento)->format('d/m/Y')}}</td>
+            </tr>
+            <tr>
+                <th>Nível de condicionamento:</th>
+                <td>{{ $registrosAlunos->nivelcondicionamento}}</td>
+            </tr>
+            <tr>
                 <th>Vo2:</th>
                 <td>{{ $registrosAlunos->vo2}}</td>
             </tr>
