@@ -6,12 +6,12 @@
 <!-- Não esquecer de colocar os mesmos name do BD -->
 <div class="form-group">
     <label for="exampleInputEmail1">E-mail</label>
-    <input type="email"  class="form-control" id="exampleInputEmail1" name="email" value="{{isset($registrosAlunos->email) ? $registrosAlunos->email : ''}}" required="">
+    <input type="email"  class="form-control" id="exampleInputEmail1" name="email" value="{{isset($registrosAlunos->email) ? $registrosAlunos->email : ''}}" >
 </div>
 
 <div class="form-group">
     <label>Telefone</label>
-    <input type="text"   class="form-control" id="exampleInputEmail1" name="telefone" value="{{isset($registrosAlunos->telefone) ? $registrosAlunos->telefone : ''}}" required="">
+    <input type="text"   class="form-control" id="exampleInputEmail1" name="telefone" value="{{isset($registrosAlunos->telefone) ? $registrosAlunos->telefone : ''}}" >
 </div>
 
 <div class="form-group">
@@ -43,12 +43,12 @@
 
 <div class="form-group">
     <label>Lesões</label>
-    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="lesoes" value="{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}" required="">{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}</textarea>
+    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="lesoes" value="{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}">{{isset($registrosAlunos->lesoes) ? $registrosAlunos->lesoes : ''}}</textarea>
 </div>
 
 <div class="form-group">
     <label>Observações</label>
-    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="observacoes" style="width: 20em; height: 5em;" value="{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}" required="">{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}</textarea>
+    <textarea type="textarea"   class="form-control" id="exampleInputEmail1" name="observacoes" style="width: 20em; height: 5em;" value="{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}" >{{isset($registrosAlunos->observacoes) ? $registrosAlunos->observacoes : ''}}</textarea>
 </div>
 
 
